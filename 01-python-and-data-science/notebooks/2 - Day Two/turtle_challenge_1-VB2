@@ -1,0 +1,40 @@
+import turtle
+
+# Function to draw a square
+def draw_square(t, size):
+    for _ in range(4):
+        t.forward(size)
+        t.right(90)
+
+# Function to position the turtle without drawing
+def move_turtle(t, x, y):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+
+# Create a screen object
+screen = turtle.Screen()
+screen.setup(width=800, height=800)
+
+# Create a turtle object
+t = turtle.Turtle()
+t.speed(3)
+
+# Size of each square
+square_size = 50
+
+# Starting coordinates
+start_x = -75
+start_y = 75
+
+# Draw 3 rows and 3 columns of squares
+for row in range(3):
+    for col in range(3):
+        x = start_x + col * (square_size + 10)
+        y = start_y - row * (square_size + 10)
+        move_turtle(t, x, y)
+        draw_square(t, square_size)
+
+# Hide the turtle and display the window
+t.hideturtle()
+screen.mainloop()
